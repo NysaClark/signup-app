@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+
+function addName(name) {
+  let nameList = document.getElementById("nameList");
+  let li = document.createElement('li');
+  li.textContent = name;
+  nameList.appendChild(li);
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="header">Sign Up</h1>
+      <input type="text" id="name" name="name" placeholder="Name..."></input>
+      <button type="submit" onClick={() => {
+        let inputBox = document.getElementById("name");
+        addName(inputBox.value);
+        inputBox.value = "";
+      }}>Add</button>
+      <ul id="nameList"></ul>
     </div>
   );
 }
